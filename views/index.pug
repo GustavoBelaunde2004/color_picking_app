@@ -1,0 +1,128 @@
+doctype html
+html
+  head
+    title Favorite Color App
+    style.
+      body {
+        font-family: 'Segoe UI', sans-serif;
+        background: #f2f2f2;
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+
+      h1, h2 {
+        margin-bottom: 1rem;
+        color: #333;
+      }
+
+      form, .confirm-box, #lookup-section {
+        background: white;
+        padding: 2rem;
+        border-radius: 10px;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        max-width: 400px;
+        width: 100%;
+        box-sizing: border-box;
+        margin-bottom: 1rem;
+      }
+
+      input, select, button {
+        width: 100%;
+        margin-bottom: 1rem;
+        padding: 0.75rem;
+        font-size: 1rem;
+        border-radius: 6px;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+      }
+
+      button {
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      button:hover {
+        background-color: #45a049;
+      }
+
+      #response-wrapper, #color-result-wrapper {
+        background: #e8f5e9;
+        color: #2d7a2d;
+        padding: 1rem 1.5rem;
+        border-radius: 8px;
+        max-width: 400px;
+        width: 100%;
+        margin-top: 0.5rem;
+        position: relative;
+        display: none;
+        box-sizing: border-box;
+      }
+
+      .close-btn {
+        position: absolute;
+        top: 8px;
+        right: 12px;
+        cursor: pointer;
+        font-size: 1.2rem;
+        color: #888;
+      }
+
+      .close-btn:hover {
+        color: #000;
+      }
+
+      .confirm-box {
+        display: none;
+        text-align: center;
+      }
+
+      #yes-btn, #no-btn {
+        width: 48%;
+        margin: 0 1%;
+        display: inline-block;
+        background-color: #007bff;
+      }
+
+      #no-btn {
+        background-color: #6c757d;
+      }
+
+      #yes-btn:hover {
+        background-color: #0056b3;
+      }
+
+      #no-btn:hover {
+        background-color: #5a6268;
+      }
+    script(src="/script.js")
+  body
+    h1 Favorite Color Tracker
+
+    form#dataForm
+      input(type="text", name="name", placeholder="Your name", required)
+      input(type="text", name="favoriteColor", placeholder="Favorite color", required)
+      button(type="submit") Submit
+    div#confirm-box(class="confirm-box")
+      p#confirm-message
+      button#yes-btn(type="button") Yes
+      button#no-btn(type="button") No
+    div#response-wrapper
+      span#response-text
+      span(class="close-btn" id="close-response") ✖
+
+    h2 View Favorite Color
+    div#lookup-section
+      select#user-select
+        option(value="" disabled selected) -- Select a user --
+      button#fetch-color(type="button") Get Color
+    div#color-result-wrapper
+      span#color-result
+      span(class="close-btn" id="close-color") ✖
